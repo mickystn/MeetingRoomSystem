@@ -18,7 +18,7 @@ function Home(){
     const [deleteq,setDelete]=useState();
 
     useEffect(()=>{
-        Axios.get("https://meeting-room-system.vercel.app/").then((res)=>{
+        Axios.get("https://backend-meetingroom.vercel.app/").then((res)=>{
             const arr=res.data;
             arr.forEach((obj,index)=>{
                 obj.key=index
@@ -102,7 +102,7 @@ function Home(){
         var name = values.name;
         var email = values.email;
         const data  = {room_id:1,date:dateString,s_time:s_timeString,e_time:e_timeString,name:name,email:email}
-        Axios.post("https://meeting-room-system.vercel.app/booking",data).then((res)=>{
+        Axios.post("https://backend-meetingroom.vercel.app/booking",data).then((res)=>{
             if(res.data=="จองเวลาเสร็จสิ้น"){
                 setIsModalBookingOpen(false);
                 window.location.reload();
@@ -136,7 +136,7 @@ function Home(){
         return <Table columns={columns} dataSource={booking} />
     }
     const handleOk = () => {
-        Axios.delete(`https://meeting-room-system.vercel.app/deleteBooking/${deleteq}`).then((res)=>{
+        Axios.delete(`https://backend-meetingroom.vercel.app/deleteBooking/${deleteq}`).then((res)=>{
             console.log(res);
             messageApi.open({
                 type: 'error',
