@@ -2,7 +2,7 @@
 Web Application สำหรับจองห้องพัฒนาด้วย React.js / Node.js สามารถจองเวลาได้ตั้งแต่ 09:00 น. - 18:00 น.
 โดยสามารถจองได้แค่ 1 ชั่วโมงต่อหนึ่งครั้งและเวลาห้ามทับซ้อนกัน
 
-#[Demo Web](https://frontend-meetingroom.vercel.app/)
+#[Demo Web](https://frontend-meetingroom.vercel.app/) สำหรับการเข้าทดลองใช้
 
 ## ขั้นตอนการติดตั้ง
 ````bash
