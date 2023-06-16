@@ -6,7 +6,7 @@ const {getBooking,booking,deleteBooking} = require('../controller/room');
 
 
 
-router.get("/test",getBooking)
+router.get("/",getBooking)
 router.post("/booking",booking)
 router.delete("/deleteBooking/:user_email",deleteBooking)
 
