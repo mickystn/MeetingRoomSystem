@@ -20,6 +20,7 @@ exports.booking=(req,res)=>{
 
     let sql=`SELECT * FROM bookings WHERE booking_date = ? AND 
             (((end_time BETWEEN ? AND ?) AND end_time!=?) OR ((start_time BETWEEN ? AND ?) AND start_time!=?))`
+            
     let sqlInsert = `INSERT INTO bookings(room_id,booking_date,start_time,end_time,user_name,user_email) VALUES (?,?,?,?,?,?)`
     console.log(date ," ",s_time ," ",e_time);
     db.query(sql,[date,s_time,e_time,s_time,s_time,e_time,e_time],(err,result)=>{
