@@ -8,6 +8,7 @@ exports.getBooking = (req,res)=>{
     })
 }
 
+
 exports.booking=(req,res)=>{
     
     const roomid = 1;
