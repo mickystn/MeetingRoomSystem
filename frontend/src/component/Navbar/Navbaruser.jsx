@@ -9,7 +9,7 @@ function Navbaruser(){
                 <li><a href="/">Home</a></li>
                 <button className="button" onClick={()=>{
                     localStorage.clear("User")
-                    navigate('/')
+                    navigate({to:"/",replace:true})
                 }}>Logout</button>
             </ul>
         </div>

@@ -7,6 +7,7 @@ export default function Dashboarduser(){
     const [user,setUser]=useState();
     const navigate = useNavigate();
     useEffect(()=>{
+        
         if(localStorage.getItem('User')==null) {
             navigate('/Login')
             return
@@ -18,8 +19,7 @@ export default function Dashboarduser(){
             }
             
         })
-        
-    })
+    },[])
     return (
         <div className='Dashboard'>
             <h>test</h>

@@ -6,6 +6,7 @@ export const Logins = async(data)=>{
 
     if(res.data.token){
         localStorage.setItem("User", res.data.token);
+        
         return res.data.message;
     }
     else{
@@ -18,6 +19,7 @@ export const auth = async()=>{
     const headers = { 'Authorization': 'Bearer '+ localStorage.getItem("User")}; // 
     const res = await Axios.post(api+"/User/auth",{},{headers});
     if(res.data.status=="ok"){
+        
         return res.data.decoded.email;
     }else{
         localStorage.clear()
