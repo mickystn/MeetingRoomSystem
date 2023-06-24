@@ -1,5 +1,5 @@
 import Axios from 'axios';
-const api = "http://localhost:3001"
+const api = "https://backend-meetingroom.vercel.app"
 
 export const Logins = async(data)=>{
     const res = await Axios.post(api+"/User/login",data);
