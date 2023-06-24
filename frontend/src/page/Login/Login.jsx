@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useState,Fragment ,forwardRef, useEffect} from 'react';
 import { Form, Input } from 'antd';
 import {Logins,auth} from '../../service/api'
-
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -36,7 +35,7 @@ export default function Login(){
     useEffect(()=>{
         auth().then((res)=>{
             if(res!='err'){
-                window.location = '/Dashboard'
+                navigate('/Dashboard')
             }
         })
     })
@@ -45,7 +44,7 @@ export default function Login(){
         const data = {email: values.Email, password: values.Password}
         Logins(data).then((res)=>{
             if(res=="login success"){
-                window.location = '/Dashboard'
+                navigate('/Dashboard')
             }else{
                 setOpen(true);
             }
