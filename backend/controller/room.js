@@ -10,7 +10,6 @@ exports.getBooking = (req,res)=>{
 
 
 exports.booking=(req,res)=>{
-    
     const roomid = 1;
     const date = req.body.date;
     const s_time = req.body.s_time;

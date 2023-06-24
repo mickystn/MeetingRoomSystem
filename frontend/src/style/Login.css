@@ -1,0 +1,99 @@
+.Login{
+    display: flex;
+    background-color: #f9f9f9;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.Login-container{
+    margin: 0 auto;
+    max-width: 80rem;
+    padding: 0 4rem;
+}
+
+.Login-content{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    height:50rem;
+    justify-content: space-between;
+    position: relative;
+}
+.Login-img{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.Login-txt{
+    display: flex;
+    
+    flex-direction: column;
+    top:0;
+    width: 50rem;
+}
+.logo{
+    width: 30rem;
+    
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 60%;
+    margin-top: 3rem;
+}
+.inp{
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    background-color:transparent;
+}
+.inp .ant-input{
+    background-color:transparent;
+    
+}
+.inp:hover{
+    border-bottom: 1px solid black;
+}
+.input-btn{
+    margin-top:4rem;
+}
+.btn-login{
+    font-size:1rem;
+    padding:10px 20px;
+    border-radius: 10px;
+    background-color: #362706;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.ant-form-item{
+    margin-bottom:0;
+}
+@media only screen and (max-width:1300px){
+    .Login{
+        height:120vh
+    }
+    .Login-container{
+        margin-top:8rem;
+    }
+    .Login-content{
+        flex-direction: column;
+        gap:0px;
+        height:auto;
+    }
+    .logo{
+        width: 70%;
+    }
+    .input-group{
+        width: 100%;
+    }
+    .Login-txt{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
