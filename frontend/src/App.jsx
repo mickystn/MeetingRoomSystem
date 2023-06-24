@@ -28,7 +28,7 @@ function App() {
     <div className="container">
         {selectNav()}
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Dashboard/>}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Dashboard" element={<Dashboard/>}/>
         </Routes>
