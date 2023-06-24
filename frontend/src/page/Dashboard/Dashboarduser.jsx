@@ -8,13 +8,12 @@ export default function Dashboarduser(){
 
     useEffect(()=>{
         if(localStorage.getItem('User')==null) {
-            window.location='/Login'
+            window.location='/Logins'
             return
         }
         auth().then((res)=>{
             if(res=="err"){
-                window.location = '/Login'
-                alert("test");
+                window.location ='/Logins'
                 return
             }
             
