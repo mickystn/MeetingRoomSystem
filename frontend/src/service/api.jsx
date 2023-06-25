@@ -1,5 +1,5 @@
 import Axios from 'axios';
-const api = "https://backend-meetingroom.vercel.app/"
+const api = "https://backend-meetingroom.vercel.app"
 
 export const Logins = async(data)=>{
     try{
