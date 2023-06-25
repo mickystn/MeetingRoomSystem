@@ -5,10 +5,26 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
 
-exports.getUser =(req,res)=>{
+exports.getAllUser =(req,res)=>{
     let sql = "SELECT * FROM `users`";
     db.query(sql,(err,result)=>{
         res.json(result);
+    })
+}
+exports.getUser=(req,res)=>{
+    const email = req.params.email;
+    let sql = "SELECT * FROM `users` WHERE `email` = ?"
+    
+    db.query(sql,email,(err,result)=>{
+        if(err){
+            res.json({status: 'error', message: err})
+            return;
+        }
+        if(result.length==0){
+            res.json({status: 'error', message:"no user found"})
+            return;
+        }
+        res.json({status: 'ok', message: result})
     })
 }
 exports.register =(req,res)=>{
@@ -52,7 +68,7 @@ exports.login=(req,res)=>{
         
         bcrypt.compare(password, result[0].password).then(function(isLogin) {
             if(isLogin){
-                var token = jwt.sign({email:result[0].email},secret_token,{expiresIn:'1h'})
+                var token = jwt.sign({id:result[0].id,email:result[0].email},secret_token,{expiresIn:'1h'})
                 res.json({status:'ok',message:'login success',token})
             }else{
                 res.json({status:'err',message:'login failed'})

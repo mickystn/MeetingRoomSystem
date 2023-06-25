@@ -8,9 +8,9 @@ import { Form, Input } from 'antd';
 import {Logins,auth} from '../../service/api'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-
+import Navbar from '../../component/Navbar/Navbar'
 const Alert = forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} {...props} />;
 });
 const rulePassword= [
     {
@@ -35,7 +35,7 @@ export default function Login(){
     useEffect(()=>{
         auth().then((res)=>{
             if(res!='err'){
-                navigate('/Dashboard')
+                navigate('/Booking')
             }
         })
     })
@@ -44,7 +44,7 @@ export default function Login(){
         const data = {email: values.Email, password: values.Password}
         Logins(data).then((res)=>{
             if(res=="login success"){
-                navigate('/Dashboard')
+                navigate('/Booking')
             }else{
                 setOpen(true);
             }
@@ -61,6 +61,7 @@ export default function Login(){
     };
     return (
         <div className="Login">
+            <Navbar/>
             <div className="Login-container">
                 <div className="Login-content">
                     <div className="Login-img">

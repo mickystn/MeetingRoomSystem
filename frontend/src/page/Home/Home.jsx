@@ -1,14 +1,18 @@
-import Navbar from "../../component/Navbar/Navbar";
+
 import '../../style/Home.css'
 import img from "../../assets/img.png"
 import img2 from "../../assets/dy.svg"
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-
+import { useNavigate } from "react-router-dom";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { UserOutlined ,MailOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {auth} from '../../service/api'
+
+import Navbar from '../../component/Navbar/Navbar'
+import { useEffect } from 'react';
 
 const { TextArea } = Input;
 const onChange = (e) => {
@@ -25,9 +29,19 @@ const theme = createTheme({
         },
     },
 });
+
 function Home(){
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(localStorage.getItem("User")==null) return
+        auth().then((res)=>{ //Check token
+            if(res=="err") return navigate('/Login')
+            navigate('/Dashboard')
+        })
+    })
     return (
         <div>
+            <Navbar/>
             <div className="Home">
                 <div className="Home-container">
                     <div className="Home-content">
@@ -37,7 +51,7 @@ function Home(){
                             <h1 className="des">Our room booking system is available 24/7 and offers
                                 a user-friendly platform for clients to easily reserve rooms.</h1>
                             <div className="let-book">
-                                <button className="btn-book">Let's book</button>
+                                <button className="btn-book" onClick={()=>{navigate('/Login')}}>Let's book</button>
                             </div>
                         </div>
                         <div className="Home-img">
@@ -74,20 +88,8 @@ function Home(){
                         
                     </div>
                 </div>
-                <div className="Homedt-container">
-                    <h1 className="txt-2 lft">Add your detail</h1>
-                    <div className="Homedt-content">
-                        <div  className="layout-form">
-                            <div className="ip-left">
-                                <Input size="large" placeholder="Name" prefix={<UserOutlined />} style={{marginBottom:'10px'}}/>
-                                <Input size="large" placeholder="Email" prefix={<MailOutlined />} />
-                            </div>
-                            <TextArea style={{height: 90, resize: 'none',}}onChange={onChange} placeholder="Notes (Optional)"/>
-                        </div>
-                    </div>
-                </div>
                 <div className="Homedt-bot">
-                    <button className="btn">Book Now</button>
+                    <button className="btn" onClick={()=>{navigate('/Login')}}>Book Now</button>
                 </div>
             </div>
         </div>

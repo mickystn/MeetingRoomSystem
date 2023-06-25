@@ -1,0 +1,46 @@
+.Booking{
+    display: flex;
+    background-color: #E9E5D6;
+    position: relative;
+    width: 100%;
+}
+.Booking-container{
+    margin: 0 auto;
+    max-width: 80rem;
+    padding: 0 4rem;
+}
+.Booking-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 7rem;
+}
+.grid .card{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding:1.5rem;
+    width: 20rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.09);
+}
+.grid .card .card-img{
+    border-radius: 10px;
+}
+.grid .card .card-txt{
+    font-size: 1.2rem;
+}
+.grp{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-btn{
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px #8a8686 solid;
+}

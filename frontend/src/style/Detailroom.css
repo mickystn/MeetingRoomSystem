@@ -1,0 +1,59 @@
+.Det{
+    background-color: #E9E5D6;
+    height: 100vh;
+}
+.Detailroom{
+    display: flex;
+    position: relative;
+    width: 100%;
+    
+    flex-direction: column;
+}
+.Detailroom-container{
+    margin: 0 auto;
+    width: 55rem;
+    padding: 0 4rem;
+    margin-top: 7rem;
+    padding:2rem;
+    box-shadow: 0 0 5px rgba(0,0,0,.09);
+    border-radius: 2rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='800' preserveAspectRatio='none' viewBox='0 0 1440 800'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1306%26quot%3b)' fill='none'%3e%3crect width='1440' height='800' x='0' y='0' fill='url(%26quot%3b%23SvgjsRadialGradient1307%26quot%3b)'%3e%3c/rect%3e%3cpath d='M1440 0L1198.67 0L1440 206.93z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1198.67 0L1440 206.93L1440 330.69L1013.1000000000001 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M1013.1 0L1440 330.69L1440 579.99L774.5 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M774.5 0L1440 579.99L1440 630.16L548.71 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 800L372.82 800L0 520.03z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 520.03L372.82 800L704.24 800L0 326.54999999999995z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 326.54999999999995L704.24 800L1104.67 800L0 320.21z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 320.21L1104.67 800L1172.97 800L0 111.96999999999997z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1306'%3e%3crect width='1440' height='800' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cradialGradient cx='0%25' cy='0%25' r='1647.3' gradientUnits='userSpaceOnUse' id='SvgjsRadialGradient1307'%3e%3cstop stop-color='rgba(215%2c 212%2c 200%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(215%2c 212%2c 200%2c 1)' offset='0.52'%3e%3c/stop%3e%3cstop stop-color='rgba(249%2c 249%2c 249%2c 1)' offset='1'%3e%3c/stop%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+.Detailroom-content{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: center;
+    position: relative;
+    
+}
+.item-detail{
+    width: 25rem;
+}
+.date{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.date-title{
+    font-size:1.25rem;
+}
+
+.btn-time:hover,
+.btn-time:active {
+    background-color: #362706;
+    scale: 1.05;
+    transition: 0.1s;
+    color:#f9f9f9;
+}
+.btn-detail-txt{
+    font-size:1rem;
+    padding:20px 40px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+}
