@@ -7,6 +7,9 @@ function Navbaruser(){
     const navigate = useNavigate();
     useEffect(()=>{
         auth().then((res)=>{
+            if(res=='err'){
+                navigate('/Login')
+            }
             getUser(res.email).then((res)=>{
                 
                 if(res=="error") return
@@ -20,7 +23,7 @@ function Navbaruser(){
             <ul className="menu">
                 
                 <li><a>{user[0]?.name}</a></li>
-                <li><a href="/Booking">Booking</a></li>
+                <li><a onClick={()=>{navigate("/Booking")}}>Booking</a></li>
                 <li><a>History</a></li>
                 <button className="button" onClick={()=>{
                     localStorage.clear("User")

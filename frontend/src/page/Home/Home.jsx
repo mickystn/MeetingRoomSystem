@@ -36,7 +36,7 @@ function Home(){
         if(localStorage.getItem("User")==null) return
         auth().then((res)=>{ //Check token
             if(res=="err") return navigate('/Login')
-            navigate('/Dashboard')
+            navigate('/Booking')
         })
     })
     return (
