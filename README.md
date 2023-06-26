@@ -45,7 +45,7 @@ Web Application สำหรับจองห้องพัฒนาด้ว�
 	
 ````
 ## Credit
-Sittinan Phattananun ( Software Developer )
+Sittinan Phattananun
 Tools :
 	 - readme editor : https://stackedit.io
 	- UI Framework : https://ant.design	
