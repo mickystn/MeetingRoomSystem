@@ -45,7 +45,6 @@ export default function Booking(){
                             {room?.map((val,index)=>{
                                 return (
                                     <div className="card" key={index}>
-                                        <img src={val.img} className=" card-img"></img>
                                         <div className="grp">
                                             <h1  className="card-txt">{val.room_name}</h1>
                                             <Link className="card-btn" to="/Booking/Detailroom" state={{id:val.id}}>Book</Link>

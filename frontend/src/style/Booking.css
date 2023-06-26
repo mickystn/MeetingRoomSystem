@@ -15,6 +15,9 @@
     gap: 2em;
     margin-top: 7rem;
 }
+.Booking-content .grid{
+    margin-top:1rem;
+}
 .grid .card{
     display: flex;
     flex-direction: column;

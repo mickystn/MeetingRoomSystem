@@ -18,7 +18,6 @@ exports.booking=(req,res)=>{
     const end_time = req.body.end_time;
     const user_id = req.body.user_id;
     
-            
     let sql = `INSERT INTO bookings(room_id,booking_date,start_time,end_time,user_id) VALUES (?,?,?,?,?)`
     db.query(sql,[room_id,date,start_time,end_time,user_id],(err,result)=>{
         if(err){
