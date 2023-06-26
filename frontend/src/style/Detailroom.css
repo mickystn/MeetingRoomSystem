@@ -1,19 +1,23 @@
 .Det{
-    background-color: #E9E5D6;
+    background-color: #fff;
     height: 100vh;
 }
+.center{
+    display:flex;
+    margin: 0 auto;
+    margin-top:7rem;
+}
+
 .Detailroom{
     display: flex;
     position: relative;
     width: 100%;
-    
     flex-direction: column;
 }
 .Detailroom-container{
     margin: 0 auto;
     width: 55rem;
     padding: 0 4rem;
-    margin-top: 7rem;
     padding:2rem;
     box-shadow: 0 0 5px rgba(0,0,0,.09);
     border-radius: 2rem;

@@ -10,7 +10,7 @@ import { Empty } from 'antd';
 import '../../style/Detailroom.css'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-
+import ReactLoading from 'react-loading';
 const theme = createTheme({
     breakpoints: {
         values: {
@@ -36,17 +36,21 @@ export default function Detailroom(props){
     const [opend, setOpend] = useState(false);
     const [user,setUser] = useState();
 
+    const [loading,setLoading] = useState(false);
 
     const navigate = useNavigate();
 
     useEffect(()=>{
         if(localStorage.getItem('User')==null) return navigate('/Login')
+        setLoading(true)
         auth().then((res)=>{
             if(res=='err') return navigate('/Login')
             getUser(res.email).then((res)=>{
                 if(res=="error") return
                 setUser(res);
             })
+        }).finally(()=>{
+            setLoading(false)
         })
         if(location.state==undefined) return navigate("/Booking")
         getBooking(location.state.id).then((res)=>{
@@ -140,34 +144,42 @@ export default function Detailroom(props){
         <div className="Det">
             <Navbaruser/>
             <div className="Detailroom">
-                <div className="Detailroom-container">
-                    <h1 className="txt-2 lft">Select Time</h1>
-                    <div className="Detailroom-content">
-                        <div className="item-detail">
-                            <div className="bg-calen">
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <ThemeProvider theme={theme}>
-                                        <DateCalendar disablePast  onChange={(val) =>{
-                                            getBookingtime(""+val.$D+"/"+(val.$M+1)+"/"+val.$y)
-                                        }} sx={{ width: {mobile: 250,tablet:350}}}/>
-                                    </ThemeProvider>
-                                </LocalizationProvider>
+                <div className="center">
+                {loading?
+                    <ReactLoading type="spin" color="black" height={150} width={150}  /> 
+                :
+                    <div className="Detailroom-container">
+                        <div>
+                            <h1 className="txt-2 lft">Select Time</h1>
+                            <div className="Detailroom-content">
+                                <div className="item-detail">
+                                    <div className="bg-calen">
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <ThemeProvider theme={theme}>
+                                                <DateCalendar disablePast  onChange={(val) =>{
+                                                    getBookingtime(""+val.$D+"/"+(val.$M+1)+"/"+val.$y)
+                                                }} sx={{ width: {mobile: 250,tablet:350}}}/>
+                                            </ThemeProvider>
+                                        </LocalizationProvider>
+                                    </div>
+                                </div>
+                                <div className="item-detail">
+                                    {showTime()}
+                                </div>
+                                <Snackbar open={open} anchorOrigin={{horizontal: 'center',vertical: 'top'}} autoHideDuration={3000} onClose={handleClose}>
+                                    <Alert onClose={handleClose}  severity="error" sx={{ width: '100%' ,color:'#FFF' }}>
+                                        Please Select Time!
+                                    </Alert>
+                                </Snackbar>
+                                <Snackbar open={opend} anchorOrigin={{horizontal: 'center',vertical: 'top'}} autoHideDuration={3000} onClose={handleClose}>
+                                    <Alert onClose={handleClose}  sx={{ width: '100%' ,color:'#FFF' }}>
+                                        Booking complete
+                                    </Alert>
+                                </Snackbar>
                             </div>
                         </div>
-                        <div className="item-detail">
-                            {showTime()}
-                        </div>
-                        <Snackbar open={open} anchorOrigin={{horizontal: 'center',vertical: 'top'}} autoHideDuration={3000} onClose={handleClose}>
-                            <Alert onClose={handleClose}  severity="error" sx={{ width: '100%' ,color:'#FFF' }}>
-                                Please Select Time!
-                            </Alert>
-                        </Snackbar>
-                        <Snackbar open={opend} anchorOrigin={{horizontal: 'center',vertical: 'top'}} autoHideDuration={3000} onClose={handleClose}>
-                            <Alert onClose={handleClose}  sx={{ width: '100%' ,color:'#FFF' }}>
-                                Booking complete
-                            </Alert>
-                        </Snackbar>
                     </div>
+                }
                 </div>
             </div>
         </div>
