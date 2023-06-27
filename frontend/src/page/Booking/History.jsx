@@ -41,7 +41,6 @@ export default function History(){
             console.log(res.id);
             getHistory(res.id).then((res)=>{
                 setHistory(res)
-                console.log(res);
             })
         }).finally(()=>{
             setLoading(false)

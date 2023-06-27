@@ -111,7 +111,7 @@ export default function Detailroom(props){
             if(res=="error") return
             setOpend(true)
             setTimeout(()=>{
-                navigate("/History")
+                navigate("/Booking/History")
             },2000)
         })
     }
