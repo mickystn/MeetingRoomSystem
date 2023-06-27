@@ -7,7 +7,7 @@ function Navbar(){
             <div></div>
             <ul className="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://mickie-portfolio.vercel.app/">Contact</a></li>
                 <button className="button" onClick={()=>{navigate('/Login')}}>Login</button>
             </ul>
         </div>
