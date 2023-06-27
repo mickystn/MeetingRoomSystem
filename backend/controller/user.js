@@ -32,12 +32,23 @@ exports.register =(req,res)=>{
     var password = req.body.password;
     var name = req.body.name;
 
-    let sql = "INSERT INTO `users`( `email`, `password`, `name`) VALUES (?,?,?)";
-    bcrypt.hash(password, saltRounds, function(err, hash) {
-        db.query(sql,[email,hash,name],(err,result)=>{
-            res.json(result);
-        })
-    });
+    let sqlInsert = "INSERT INTO `users`( `email`, `password`, `name`) VALUES (?,?,?)";
+
+    let sqlSearch = "SELECT * FROM users WHERE email = ? "
+
+    db.query(sqlSearch,[email],(err,result)=>{
+        if(result.length!=0) return res.json({status:'error',message:'cannot use this email'})
+        if(err) return res.json({status:'error',message:err})
+
+
+        bcrypt.hash(password, saltRounds, function(err, hash) {
+            db.query(sqlInsert,[email,hash,name],(err,result)=>{
+                if(err) return res.json({status:'error',message:err})
+                res.json({status:'ok',message:'create complete'})
+            })
+        });
+    })
+   
 }
 
 exports.auth=(req,res)=>{

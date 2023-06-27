@@ -11,6 +11,7 @@ import '../../style/Detailroom.css'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ReactLoading from 'react-loading';
+
 const theme = createTheme({
     breakpoints: {
         values: {
@@ -110,7 +111,7 @@ export default function Detailroom(props){
             if(res=="error") return
             setOpend(true)
             setTimeout(()=>{
-                navigate("/Booking")
+                navigate("/History")
             },2000)
         })
     }

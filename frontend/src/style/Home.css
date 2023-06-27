@@ -110,6 +110,7 @@
     background-color: #ffffff;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 }
 .btn-time:focus {
     background-color: #362706;
@@ -130,6 +131,7 @@
     border: none;
     width: 100%;
     margin-top: 10px;
+    cursor: pointer;
 }
 .layout-form {
     display: flex;

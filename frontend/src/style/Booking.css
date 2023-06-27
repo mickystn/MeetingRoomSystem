@@ -23,7 +23,7 @@
     flex-direction: column;
     background-color: #fff;
     padding:1.5rem;
-    width: 20rem;
+    width: 18rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,.09);
 }
@@ -34,7 +34,6 @@
     font-size: 1.2rem;
 }
 .grp{
-    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,4 +45,29 @@
     font-size: 1rem;
     font-weight: bold;
     border: 1px #8a8686 solid;
+}
+@media (min-width:650px) and (max-width:1000px){
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid .card{
+        width: 100%;
+    }
+    .Booking-container{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:649px){
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .grid .card{
+        width: 100%;
+    }
+    .Booking-container{
+        width: 100%;
+    }
 }

@@ -2,6 +2,7 @@ import '../../style/Navbar.css'
 import { useNavigate } from "react-router-dom";
 import {auth,getUser} from '../../service/api'
 import { useEffect ,useState} from 'react';
+
 function Navbaruser(){
     const [user,setUser]=useState({});
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ function Navbaruser(){
                 
                 <li><a>{user[0]?.name}</a></li>
                 <li><a onClick={()=>{navigate("/Booking")}}>Booking</a></li>
-                <li><a>History</a></li>
+                <li><a onClick={()=>{navigate("/Booking/History")}}>History</a></li>
                 <button className="button" onClick={()=>{
                     localStorage.clear("User")
                     navigate("/")

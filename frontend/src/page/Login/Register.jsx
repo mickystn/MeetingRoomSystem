@@ -1,11 +1,11 @@
 
 import '../../style/Login.css'
-import img from '../../assets/img2.png';
-import { MailOutlined ,LockOutlined} from '@ant-design/icons';
+import img from '../../assets/img3.png';
+import { MailOutlined ,LockOutlined,UserOutlined} from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import { useState,Fragment ,forwardRef, useEffect} from 'react';
 import { Form, Input } from 'antd';
-import {Logins,auth} from '../../service/api'
+import {Logins,auth,createUser} from '../../service/api'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Navbar from '../../component/Navbar/Navbar'
@@ -18,6 +18,12 @@ const rulePassword= [
         message: 'Please input your password!',
     },
 ]
+const ruleName= [
+    {
+        required: true,
+        message: 'Please input your name!',
+    },
+]
 const ruleEmail = [
     {
         required: true,
@@ -28,9 +34,11 @@ const ruleEmail = [
         message: 'Please check your email'
     }
 ]
-export default function Login(){
+export default function Register(){
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
+
+    const [msg,setMsg] = useState();
 
     useEffect(()=>{
         auth().then((res)=>{
@@ -41,11 +49,19 @@ export default function Login(){
     })
 
     function onFinish(values){
-        const data = {email: values.Email, password: values.Password}
-        Logins(data).then((res)=>{
-            if(res=="login success"){
-                navigate('/Booking')
+        const data = {email: values.Email, password: values.Password,name:values.Name}
+        createUser(data).then((res)=>{
+            if(res=="cannot use this email"){
+                setMsg("cannot use this email");
+                setOpen(true)
+            }
+            else if(res=="ok"){
+                setMsg("register success")
+                setTimeout(()=>{
+                    navigate('/Login')
+                },2000)
             }else{
+                setMsg("something wrong");
                 setOpen(true);
             }
         })
@@ -68,24 +84,26 @@ export default function Login(){
                         <img className="logo"src={img}/>
                     </div>
                     <div className="Login-txt">
-                        <h1 className="txt-2">Sign up</h1>
+                        <h1 className="txt-2">Register</h1>
                             <Form onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off" >
                             <div className="input-group">
                                 <Form.Item name="Email" rules={ruleEmail}>
                                     <Input size="default " placeholder="Email"  bordered={false} prefix={<MailOutlined />} className='inp'/>
                                 </Form.Item>
+                                <Form.Item name="Name" rules={ruleName}>
+                                    <Input size="default " placeholder="Name"  bordered={false} prefix={<UserOutlined />} className='inp'/>
+                                </Form.Item>
                                 <Form.Item name="Password" rules={rulePassword}>
                                     <Input.Password size="default " placeholder="Password" bordered={false} prefix={<LockOutlined />} className='inp'/>
                                 </Form.Item>
-                                <a className="des" onClick={()=>{navigate("/Register")}} >Create an account</a>
                             </div>
                             <div className='input-btn'>
                                 <Snackbar open={open} anchorOrigin={{horizontal: 'center',vertical: 'top'}} autoHideDuration={3000} onClose={handleClose}>
                                     <Alert onClose={handleClose}  severity="error" sx={{ width: '100%' ,color:'#FFF' }}>
-                                        Check your email and password
+                                        {msg}
                                     </Alert>
                                 </Snackbar>
-                                <button className="btn-login" >Login in</button>
+                                <button className="btn-login" >Register</button>
                             </div>
                             </Form>
                     </div>

@@ -1,5 +1,6 @@
 import Axios from 'axios';
 const api = "https://backend-meetingroom.vercel.app"
+//const api = "http://localhost:3001"
 
 export const Logins = async(data)=>{
     try{
@@ -54,4 +55,18 @@ export const Booking = async(data)=>{
         return res.data.message;
     }
     return res.data.status
+}
+export const getHistory = async(user_id) =>{
+    const res = await Axios.get(api+`/Booking/getHistory/${user_id}`)
+    if(res.data.status=="ok"){
+        return res.data.message;
+    }
+    return res.data.status;
+}
+export const createUser = async(data)=>{
+    const res = await Axios.post(api+"/User/register",data)
+    if(res.data.status=="ok"){
+        return res.data.status;
+    }
+    return res.data.message;
 }

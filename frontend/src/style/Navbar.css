@@ -23,6 +23,12 @@ a{
     align-items: center;
     gap:1rem;
 }
+.button{
+    cursor: pointer;
+}
+.menu a{
+    cursor: pointer;
+}
 .menu > li {
     margin: 0 1rem;
 }

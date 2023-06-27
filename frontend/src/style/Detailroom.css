@@ -60,4 +60,30 @@
     border: none;
     width: 100%;
     margin-top: 10px;
+    cursor: pointer;
+}
+@media (min-width: 501px) and (max-width:1000px){
+    .Detailroom-content{
+        flex-direction: column;
+    }
+    .Detailroom-container{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:500px){
+    .Detailroom-content{
+        flex-direction: column;
+    }
+    .Detailroom-container{
+        width: 100%;
+    }
+    .date-title{
+        font-size: 1rem;
+    }
+    .item-detail{
+        width: 100%;
+    }
+    .Detailroom-container{
+        width: 100%;
+    }
 }

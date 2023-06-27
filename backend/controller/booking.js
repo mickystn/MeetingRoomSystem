@@ -11,6 +11,18 @@ exports.getBooking = (req,res)=>{
     })
 }
 
+exports.getHistory = (req,res)=>{
+    const user_id = req.params.user_id;
+    console.log(user_id);
+    let sql = 'SELECT * FROM bookings WHERE user_id = ? ORDER BY booking_date'
+    
+    db.query(sql,[user_id],(err,result)=>{
+        if(err) return res.json({status:'error',message:err})
+        res.json({status:'ok',message:result})
+    })
+}
+
+
 exports.booking=(req,res)=>{
     const room_id = req.body.room_id;
     const date = req.body.booking_date;
