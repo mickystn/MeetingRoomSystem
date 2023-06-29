@@ -34,10 +34,13 @@ export default function Booking(){
     return (
         <div className='Booking'>
             <Navbaruser/>
+            
             <div className='Booking-container'>
                 <div className='Booking-content'>
                 { loading? 
-                    <ReactLoading type="spin" color="black" height={150} width={150}  />
+                    <div className="center">
+                        <ReactLoading type="spin" color="black" height={150} width={150}  />
+                    </div>
                 :
                     <div>
                         <h1>Booking</h1>
