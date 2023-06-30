@@ -20,9 +20,8 @@ function Navbar(){
                     <li><a class="menu__item" href="/">Home</a></li>
                     <li><a class="menu__item" href="https://mickie-portfolio.vercel.app/">Contact</a></li>
                     <li><a class="menu__item" onClick={()=>{
-                        localStorage.clear("User")
-                        navigate("/")
-                    }}>Logout</a></li>
+                        navigate("/Login")
+                    }}>Login</a></li>
                 </ul>
             </div>
         </div>
