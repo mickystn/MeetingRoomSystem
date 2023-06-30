@@ -43,6 +43,7 @@ export default function Booking(){
                     </div>
                 :
                     <div>
+                        
                         <h1>Booking</h1>
                         <div className="grid">
                             {room?.map((val,index)=>{
