@@ -31,7 +31,7 @@ function Navbaruser(){
             </ul>
             <div className='hamburger'>
                 <input id="menu__toggle" type="checkbox" />
-                <label className="menu__btn" for="menu__toggle">
+                <label className="menu__btn" >
                 
                 <span></span>
                 </label>
