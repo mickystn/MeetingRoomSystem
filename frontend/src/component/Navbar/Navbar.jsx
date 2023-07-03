@@ -12,14 +12,14 @@ function Navbar(){
             </ul>
             <div className='hamburger'>
                 <input id="menu__toggle" type="checkbox" />
-                <label class="menu__btn" for="menu__toggle">
+                <label className="menu__btn" for="menu__toggle">
                 
                 <span></span>
                 </label>
-                <ul class="menu__box">
-                    <li><a class="menu__item" href="/">Home</a></li>
-                    <li><a class="menu__item" href="https://mickie-portfolio.vercel.app/">Contact</a></li>
-                    <li><a class="menu__item" onClick={()=>{
+                <ul className="menu__box">
+                    <li><a className="menu__item" href="/">Home</a></li>
+                    <li><a className="menu__item" href="https://mickie-portfolio.vercel.app/">Contact</a></li>
+                    <li><a className="menu__item" onClick={()=>{
                         navigate("/Login")
                     }}>Login</a></li>
                 </ul>

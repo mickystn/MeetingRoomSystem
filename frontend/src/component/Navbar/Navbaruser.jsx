@@ -31,14 +31,14 @@ function Navbaruser(){
             </ul>
             <div className='hamburger'>
                 <input id="menu__toggle" type="checkbox" />
-                <label class="menu__btn" for="menu__toggle">
+                <label className="menu__btn" for="menu__toggle">
                 
                 <span></span>
                 </label>
-                <ul class="menu__box">
-                    <li><a class="menu__item" onClick={()=>{navigate("/Booking")}}>Booking</a></li>
-                    <li><a class="menu__item" onClick={()=>{navigate("/Booking/History")}}>History</a></li>
-                    <li><a class="menu__item" onClick={()=>{
+                <ul className="menu__box">
+                    <li><a className="menu__item" onClick={()=>{navigate("/Booking")}}>Booking</a></li>
+                    <li><a className="menu__item" onClick={()=>{navigate("/Booking/History")}}>History</a></li>
+                    <li><a className="menu__item" onClick={()=>{
                         localStorage.clear("User")
                         navigate("/")
                     }}>Logout</a></li>
