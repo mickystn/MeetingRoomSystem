@@ -12,7 +12,7 @@ function Navbar(){
             </ul>
             <div className='hamburger'>
                 <input id="menu__toggle" type="checkbox" />
-                <label className="menu__btn">
+                <label className="menu__btn" for="menu__toggle">
                 
                 <span></span>
                 </label>

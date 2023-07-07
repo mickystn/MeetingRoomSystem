@@ -31,11 +31,11 @@ function Navbaruser(){
             </ul>
             <div className='hamburger'>
                 <input id="menu__toggle" type="checkbox" />
-                <label className="menu__btn" >
+                <label className="menu__btn" for="menu__toggle" >
                 
                 <span></span>
                 </label>
-                <ul className="menu__box">
+                <ul className="menu__box" >
                     <li><a className="menu__item" onClick={()=>{navigate("/Booking")}}>Booking</a></li>
                     <li><a className="menu__item" onClick={()=>{navigate("/Booking/History")}}>History</a></li>
                     <li><a className="menu__item" onClick={()=>{
